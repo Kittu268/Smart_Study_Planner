@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Study Planner</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container" id="plannerContainer">
+    <h1>📚 Smart Study Planner</h1>
+
+    <!-- Task Inputs -->
+    <select id="categorySelect">
+      <option value="Math">Math</option>
+      <option value="Science">Science</option>
+      <option value="History">History</option>
+      <option value="Coding">Coding</option>
+    </select>
+
+    <select id="prioritySelect">
+      <option value="High">High Priority</option>
+      <option value="Medium">Medium Priority</option>
+      <option value="Low">Low Priority</option>
+    </select>
+
+    <input type="text" id="taskInput" placeholder="Enter study task..." />
+    <input type="date" id="dueDateInput" />
+    <input type="number" id="weeklyGoalInput" placeholder="Weekly goal (tasks)" />
+
+    <!-- Action Buttons -->
+    <button onclick="addTask()">Add Task</button>
+    <button onclick="summarizeTask()">Summarize</button>
+    <button onclick="exportTasks()">Export</button>
+    <input type="file" onchange="importTasks(event)" />
+    <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+<button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
+    <!-- Theme Previews -->
+    <div id="themePreview">
+      <label>Select Theme:</label>
+      <div class="theme-swatch" onclick="setTheme('light')" title="Light"></div>
+      <div class="theme-swatch" onclick="setTheme('dark')" title="Dark"></div>
+      <div class="theme-swatch" onclick="setTheme('solarized')" title="Solarized"></div>
+      <div class="theme-swatch" onclick="setTheme('neon')" title="Neon"></div>
+    </div>
+
+    <select id="themeSelect" onchange="applyTheme()">
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+      <option value="solarized">Solarized</option>
+      <option value="neon">Neon</option>
+    </select>
+
+    <!-- Filters and Sorting -->
+    <select id="filterSelect" onchange="renderTasks()">
+      <option value="All">All Subjects</option>
+      <option value="Math">Math</option>
+      <option value="Science">Science</option>
+      <option value="History">History</option>
+      <option value="Coding">Coding</option>
+    </select>
+
+    <select id="sortSelect" onchange="renderTasks()">
+      <option value="none">Sort by...</option>
+      <option value="dueDate">Due Date</option>
+      <option value="priority">Priority</option>
+    </select>
+
+    <!-- Collapsible Task Section -->
+    <button onclick="toggleTaskList()">Show/Hide Tasks</button>
+    <div id="taskSection">
+      <ul id="taskList"></ul>
+    </div>
+
+    <!-- Progress -->
+    <div id="progressBarContainer">
+      <div id="progressBar"></div>
+    </div>
+    <p id="progressSummary"></p>
+  </div>
+
+  <!-- Custom Theme Builder -->
+  <div id="customThemeBuilder">
+    <label>Background:</label>
+    <input type="color" id="bgColorPicker" onchange="applyCustomTheme()" />
+    <label>Text:</label>
+    <input type="color" id="textColorPicker" onchange="applyCustomTheme()" />
+  </div>
+
+  <!-- Sound Effects -->
+  <audio id="soundAdd" src="add.mp3"></audio>
+  <audio id="soundDone" src="done.mp3"></audio>
+  <audio id="soundDelete" src="delete.mp3"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>

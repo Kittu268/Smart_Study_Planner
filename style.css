@@ -1,0 +1,109 @@
+body, .container {
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+.container {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  width: 400px;
+  text-align: center;
+}
+
+input, select, button {
+  width: 90%;
+  padding: 10px;
+  margin: 5px 0;
+}
+
+button {
+  background: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+button:hover {
+  transform: scale(1.05);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: #e9ecef;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.3s ease, opacity 0.3s ease;
+}
+li.completed {
+  text-decoration: line-through;
+  background: #d4edda;
+}
+li.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.4s forwards;
+}
+@keyframes fadeIn {
+  to { opacity: 1; transform: translateX(0); }
+}
+li.fade-out {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+#progressBarContainer {
+  margin-top: 20px;
+  background: #dee2e6;
+  height: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+#progressBar {
+  height: 100%;
+  background: #28a745;
+  width: 0%;
+}
+
+/* Theme Swatches */
+#themePreview {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+.theme-swatch {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #ccc;
+}
+.theme-swatch[title="Light"] { background: linear-gradient(to right, #f0f4f8, #dbe9f4); }
+.theme-swatch[title="Dark"] { background: linear-gradient(to right, #121212, #1e1e1e); }
+.theme-swatch[title="Solarized"] { background: linear-gradient(to right, #fdf6e3, #eee8d5); }
+.theme-swatch[title="Neon"] { background: linear-gradient(to right, #0f0c29, #302b63); }
+
+/* Themes */
+body.light { background: linear-gradient(to right, #f0f4f8, #dbe9f4); color: #222; }
+body.dark { background: linear-gradient(to right, #121212, #1e1e1e); color: #f0f0f0; }
+body.solarized { background: linear-gradient(to right, #fdf6e3, #eee8d5); color: #657b83; }
+body.neon { background: linear-gradient(to right, #0f0c29, #302b63, #24243e); color: #39ff14; }
+
+.container.neon {
+  background: rgba(0, 0, 0, 0.8);
+}
+.container.neon input,
+.container.neon select,
+.container.neon button {
+  background: #1a1a1a;
+  color: #39ff14;
+  border: 1px solid #39ff14;
+}
